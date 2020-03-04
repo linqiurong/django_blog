@@ -1,0 +1,25 @@
+<!-- 加载静态文件夹 -->
+{% load static %}
+
+<!-- 头部 -->
+<header class="fix-wrap" id="fix-wrap">
+  <div class="fix-main clearfix pr" id="fix-main" _hover-ignore="1"> <a href="/" class="index-logo">
+      <img src='{% static "picture/black-logo.png" %}' alt="拓普Python学院,Python!"></a>
+      <nav class="nav fl">
+        <ul id="fix-list" class="fix-list clearfix">
+
+          <li id="menu-item-24086" class="menu-item"><a href="/">首页</a></li>
+          {% for category in category_list %}
+          <li id="menu-item-117720" class="menu-item">
+            <a href="{% url 'index' %}list-{{ category.id }}.html">{{ category.name }}</a>
+          </li>
+          {% endfor %}
+          <li id="menu-item-117720" class="menu-item"><a href="/about/">关于博主</a></li>
+        </ul>
+      </nav>
+      <form method="get" class="index-search  hidden-xs" action="/s/">
+        <input class="text" name="search" type="text" placeholder="输入关键字" value="">
+        <button class="submit" type="submit"><i class="fa fa-search"></i></button>
+      </form>
+  </div>
+</header>
